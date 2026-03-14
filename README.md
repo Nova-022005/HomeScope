@@ -96,17 +96,15 @@ Visualization:
 - CSV - Data storage format
 
 ## 📁 Project Structure
+```
 HomeScope/
-|
 ├── README.md                          # Project documentation
 ├── data/                              # Data files and processing scripts
 │   └── Transformed_Housing_Data2.csv  # Cleaned dataset
-|
 ├── images/                            # Visual exports
 ├── tableau/                           # Tableau workbooks and exports
 │   ├── dashboards/
 │   └── visualizations/
-|
 ├── web/                               # Web integration files
 │   ├── templates/                     # HTML templates
 │   ├── static/                        # CSS, JS, images
@@ -114,9 +112,9 @@ HomeScope/
 │   │   ├── js/
 │   │   └── images/
 │   └── requirements.txt               # Python dependencies
-|
 └── docs/                              # Additional documentation
     └── performance_testing.md
+```
 
 ## Usage
 ### Data Preparation
