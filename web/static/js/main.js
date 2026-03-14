@@ -359,7 +359,46 @@ function bindControls4() {
 	document.getElementById("toolbarToggle4")?.addEventListener("change", toggleToolbarAction4);
 }
 
+/* Dataset Modal Functions */
+function openDatasetModal() {
+	const modal = document.getElementById("datasetModal");
+	const backdrop = document.getElementById("modalBackdrop");
+	modal?.classList.add("active");
+	backdrop?.classList.add("active");
+}
+
+function closeDatasetModal() {
+	const modal = document.getElementById("datasetModal");
+	const backdrop = document.getElementById("modalBackdrop");
+	modal?.classList.remove("active");
+	backdrop?.classList.remove("active");
+}
+
+function downloadDataset() {
+	const csvPath = "../../data/Transformed_Housing_Data2.csv";
+	const link = document.createElement("a");
+	link.href = csvPath;
+	link.download = "Transformed_Housing_Data2.csv";
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+	closeDatasetModal();
+}
+
 window.addEventListener("DOMContentLoaded", () => {
+	/* Dataset Modal Event Listeners */
+	const datasetBtn = document.getElementById("datasetBtn");
+	const closeBtn = document.getElementById("closeModalBtn");
+	const cancelBtn = document.getElementById("cancelBtn");
+	const downloadBtn = document.getElementById("downloadConfirmBtn");
+	const backdrop = document.getElementById("modalBackdrop");
+
+	datasetBtn?.addEventListener("click", openDatasetModal);
+	closeBtn?.addEventListener("click", closeDatasetModal);
+	cancelBtn?.addEventListener("click", closeDatasetModal);
+	downloadBtn?.addEventListener("click", downloadDataset);
+	backdrop?.addEventListener("click", closeDatasetModal);
+
 	setControlsEnabled(false);
 	setControlsEnabled2(false);
 	setControlsEnabled3(false);

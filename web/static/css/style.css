@@ -632,3 +632,222 @@ footer {
 		min-height: clamp(22rem, 58vh, 34rem);
 	}
 }
+
+/* Dataset Nav Button and Modal Styles */
+.nav-dataset-btn {
+	background: none;
+	border: none;
+	text-decoration: none;
+	color: whitesmoke;
+	font-size: clamp(0.9rem, 0.24vw + 0.84rem, 1rem);
+	
+	padding: 0.34rem 0.62rem;
+	border-radius: 8px;
+	cursor: pointer;
+	font-family: inherit;
+	transition: all 0.2s ease;
+}
+
+.nav-dataset-btn:hover {
+	background: rgba(255, 255, 255, 0.15);
+	color: #ffffff;
+}
+
+.nav-dataset-btn:focus {
+	outline: 2px solid #ffffff;
+	outline-offset: 4px;
+}
+
+/* Modal Styles */
+.dataset-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0.9);
+	background: white;
+	border-radius: 12px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+	z-index: 1001;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	max-width: 500px;
+	width: 90%;
+	max-height: 80vh;
+	overflow-y: auto;
+  
+}
+
+.dataset-modal.active {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 1000;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.dataset-modal-content {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	border-bottom: 1px solid #e5e7eb;
+	background: linear-gradient(135deg, #e0f7ff 0%, #d4f0ff 100%);
+}
+
+.modal-header h3 {
+	margin: 0;
+	font-size: 1.3rem;
+	color: #00597b;
+	font-weight: 600;
+}
+
+.modal-close {
+	background: none;
+	border: none;
+	font-size: 1.8rem;
+	cursor: pointer;
+	color: #6b7280;
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+	background: rgba(0, 0, 0, 0.05);
+	color: #000;
+}
+
+.modal-body {
+	padding: 20px;
+	flex: 1;
+}
+
+.dataset-info {
+	background: #f8fcfe;
+	border-radius: 8px;
+	padding: 15px;
+	margin-bottom: 16px;
+	border-left: 4px solid #0096c7;
+ 
+
+.info-item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 12px;
+	font-size: 0.95rem;
+	align-items: center;
+}
+
+.info-item:last-child {
+	margin-bottom: 0;
+}
+
+.info-label {
+	font-weight: 600;
+	color: #1a3a4a;
+}
+
+.info-value {
+	color: #4b7a7e;
+	text-align: right;
+	font-weight: 500;
+}
+
+.modal-description {
+	color: #4b5563;
+	line-height: 1.6;
+	font-size: 0.95rem;
+	margin: 0;
+}
+
+.modal-footer {
+	display: flex;
+	gap: 12px;
+	padding: 16px 20px;
+	border-top: 1px solid #e5e7eb;
+	background: #f9fafb;
+	border-radius: 0 0 12px 12px;
+}
+
+.modal-btn {
+	flex: 1;
+	padding: 10px 16px;
+	border: none;
+	border-radius: 8px;
+	font-size: 0.95rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.modal-btn-cancel {
+	background: #e5e7eb;
+	color: #374151;
+}
+
+.modal-btn-cancel:hover {
+	background: #d1d5db;
+}
+
+.modal-btn-download {
+	background: linear-gradient(135deg, #0096c7 0%, #004d73 100%);
+	color: white;
+}
+
+.modal-btn-download:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 96, 199, 0.3);
+}
+
+.modal-btn-download:active {
+	transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+	.dataset-modal {
+		width: 95%;
+		max-width: 90vw;
+	}
+
+	.modal-header h3 {
+		font-size: 1.1rem;
+	}
+
+	.info-item {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.info-value {
+		text-align: left;
+		margin-top: 4px;
+	}
+}
