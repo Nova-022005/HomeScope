@@ -756,7 +756,8 @@ footer {
 	padding: 15px;
 	margin-bottom: 16px;
 	border-left: 4px solid #0096c7;
- 
+  font-size: 1px;
+}
 
 .info-item {
 	display: flex;
