@@ -22,7 +22,7 @@ body {
 	background: linear-gradient(180deg, #f1f5ff 0%, #f7f9fd 52%, #f5f6f8 100%);
 	color: var(--text);
 	font-family: "Segoe UI", Roboto, Arial, sans-serif;
-	font-size: clamp(1.08rem, 0.42vw + 0.95rem, 1.24rem);
+	font-size: clamp(0.95rem, 0.2vw + 0.9rem, 1.04rem);
 }
 
 .container {
@@ -41,7 +41,7 @@ body {
 }
 
 .nav-inner {
-	height: clamp(4rem, 6vh, 5.2rem);
+	height: clamp(3.2rem, 4.5vh, 3.9rem);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -52,7 +52,7 @@ body {
 	gap: 10px;
 	align-items: center;
 	font-weight: 600;
-	font-size: clamp(1.35rem, 1.25vw + 1rem, 1.8rem);
+	font-size: clamp(1.18rem, 0.8vw + 0.95rem, 1.45rem);
   color: white;
 }
 
@@ -76,9 +76,9 @@ body {
 .nav-links a {
 	text-decoration: none;
 	color: #374151;
-	font-size: clamp(1rem, 0.35vw + 0.9rem, 1.12rem);
+	font-size: clamp(0.9rem, 0.24vw + 0.84rem, 1rem);
 	font-weight: 600;
-	padding: 0.5rem 0.72rem;
+	padding: 0.34rem 0.62rem;
 	border-radius: 8px;
 	color: whitesmoke;
 }
@@ -104,8 +104,8 @@ body {
 }
 
 .github-icon {
-	width: 2rem;
-	height: 2rem;
+	width: 1.3rem;
+	height: 1.3rem;
 	fill: #111827;
 }
 
@@ -115,6 +115,8 @@ body {
 	align-items: center;
 	padding: clamp(1.5rem, 3vh, 2.5rem) 0;
 	position: relative;
+	background: linear-gradient(180deg, #e9f0ff 0%, #f3f7ff 100%);
+	border-radius: 14px;
 }
 
 .hero .container {
@@ -130,13 +132,13 @@ body {
 
 .hero h1 {
 	margin: 0 0 6px;
-	font-size: clamp(2.5rem, 4vw, 3.7rem);
+	font-size: clamp(2.05rem, 3vw, 2.9rem);
 	color: #111827;
 }
 
 .hero h2 {
 	margin: 0;
-	font-size: clamp(1.45rem, 2.3vw, 2.15rem);
+	font-size: clamp(1.12rem, 1.3vw, 1.55rem);
 	color: var(--accent);
 	font-weight: 600;
 }
@@ -145,7 +147,7 @@ body {
 	margin-top: 16px;
 	max-width: 740px;
 	color: var(--muted);
-	line-height: 1.65;
+	line-height: 1.55;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -201,36 +203,42 @@ body {
 
 .project-overview {
 	margin-top: clamp(1.6rem, 3.5vh, 2.6rem);
+	background: linear-gradient(135deg, #e0f7ff 0%, #d4f0ff 50%, #c8ebff 100%);
+	border-radius: 14px;
+	padding: 0.55rem;
 }
 
 .project-overview-card {
-	background: var(--surface);
-	border: 1px solid var(--line);
+	background: rgba(255, 255, 255, 0.85);
+	border: 1px solid rgba(0, 150, 200, 0.12);
 	border-radius: var(--radius);
-	box-shadow: var(--shadow);
+	box-shadow: 0 2px 8px rgba(0, 120, 200, 0.08);
 	padding: clamp(1.2rem, 2.5vh, 2rem);
 	line-height: 1.8;
-	color: #374151;
-	border-top: 4px solid rgba(33, 70, 208, 0.55);
+	color: #1a3a4a;
+	border-top: 4px solid rgba(0, 150, 200, 0.6);
 }
 
 .overview-lead {
-	font-size: clamp(1.02rem, 0.3vw + 0.95rem, 1.18rem);
+	font-size: clamp(0.95rem, 0.2vw + 0.9rem, 1.05rem);
+	color: #1f4d63;
 }
 
 .project-overview-card h4 {
 	margin: 1rem 0 0.65rem;
-	font-size: clamp(1.15rem, 0.8vw + 0.95rem, 1.45rem);
-	color: #0f2b7a;
+	font-size: clamp(1.02rem, 0.45vw + 0.9rem, 1.2rem);
+	color: #00597b;
 }
 
 .overview-objectives {
 	margin: 0;
 	padding-left: 1.25rem;
+	color: #1a3a4a;
 }
 
 .overview-objectives li {
 	margin-bottom: 0.55rem;
+	color: #1a3a4a;
 }
 
 .project-overview-card p + p {
@@ -253,7 +261,7 @@ body {
 
 .section-title {
 	margin: 0 0 16px;
-	font-size: clamp(1.75rem, 2.7vw, 2.8rem);
+	font-size: clamp(1.28rem, 1.5vw, 1.85rem);
 	text-align: center;
 	color: #12235c;
 }
@@ -269,8 +277,8 @@ body {
 
 .analysis-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
+	grid-template-columns: minmax(210px, 0.72fr) minmax(420px, 1.28fr);
+	gap: 14px;
 }
 
 .viz-preview-card,
@@ -299,21 +307,28 @@ body {
 }
 
 .observations-card {
-	padding: 20px;
+	padding: 14px;
 	background: #eff4ff;
 }
 
 .observations-card h4 {
-	margin: 0 0 12px;
+	margin: 0 0 8px;
 	color: #16348d;
-	font-size: clamp(1.12rem, 1vw + 0.95rem, 1.42rem);
+	font-size: clamp(0.96rem, 0.42vw + 0.88rem, 1.14rem);
 }
 
-.observations-card ol {
+.observations-card ol,
+.observations-card ul {
 	margin: 0;
-	padding-left: 20px;
+	padding-left: 18px;
 	color: #1f3ca5;
-	line-height: 1.65;
+	line-height: 1.45;
+	font-size: 0.92rem;
+	font-weight: 500;
+}
+
+.observations-card li {
+	margin-bottom: 4px;
 }
 
 .split-block {
@@ -403,30 +418,39 @@ body {
 
 .interactive-panel {
 	margin-top: 34px;
-	padding: clamp(1rem, 2.4vh, 1.6rem);
+	padding: clamp(0.85rem, 1.8vh, 1.2rem);
 	box-shadow: 0 8px 24px rgba(30, 41, 59, 0.08);
 }
 
+.interactive-panel:nth-of-type(odd) {
+	background: #f8fbff;
+}
+
+.interactive-panel:nth-of-type(even) {
+	background: #f2f6ff;
+}
+
 .interactive-subtext {
-	margin: 0 0 18px;
+	margin: 0 0 10px;
 	color: #4b5563;
-	font-size: clamp(1rem, 0.28vw + 0.92rem, 1.12rem);
+	font-size: 0.94rem;
 }
 
 .viz-controls {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 10px;
-	margin-bottom: 16px;
+	gap: 8px;
+	margin-bottom: 10px;
 }
 
 .viz-controls button {
 	border: 1px solid #cbd5e1;
 	background: #ffffff;
 	color: #1f2937;
-	padding: 10px 14px;
+	padding: 7px 10px;
 	border-radius: 8px;
 	font-weight: 600;
+	font-size: 0.86rem;
 	cursor: pointer;
 }
 
@@ -439,11 +463,12 @@ body {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	padding: 10px 14px;
+	padding: 7px 10px;
 	border: 1px solid #cbd5e1;
 	border-radius: 8px;
 	background: #ffffff;
 	font-weight: 600;
+	font-size: 0.86rem;
 }
 
 .tableau-mount {
@@ -452,8 +477,17 @@ body {
 	border-radius: 10px;
 	border: 1px solid #d1d5db;
 	background: #fff;
-	min-height: clamp(26rem, 62vh, 50rem);
+	min-height: clamp(21rem, 54vh, 34rem);
 	box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.03);
+}
+
+.interactive-panel--summary {
+	padding-bottom: 0.95rem;
+}
+
+.tableau-mount--summary {
+	min-height: clamp(30rem, 78vh, 52rem);
+	width: 100%;
 }
 
 .tableau-mount tableau-viz {
@@ -548,7 +582,11 @@ footer {
 	}
 
 	.tableau-mount {
-		min-height: clamp(23rem, 56vh, 38rem);
+		min-height: clamp(20rem, 50vh, 30rem);
+	}
+
+	.tableau-mount--summary {
+		min-height: clamp(24rem, 65vh, 42rem);
 	}
 }
 
@@ -587,6 +625,10 @@ footer {
 	}
 
 	.tableau-mount {
-		min-height: clamp(22rem, 60vh, 34rem);
+		min-height: clamp(18rem, 46vh, 26rem);
+	}
+
+	.tableau-mount--summary {
+		min-height: clamp(22rem, 58vh, 34rem);
 	}
 }

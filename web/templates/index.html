@@ -52,17 +52,17 @@
 				</p>
 
 				<h4>Project Objectives</h4>
-				<ol class="overview-objectives">
+				<ul class="overview-objectives">
 					<li><strong>Data Foundation:</strong> Build a clean, validated, and structured housing dataset from raw records.</li>
 					<li><strong>Pattern Discovery:</strong> Identify how renovation timing, property age, and interior features influence market behavior.</li>
 					<li><strong>Visual Communication:</strong> Transform analysis outputs into interactive Tableau views that make insights easy to understand.</li>
 					<li><strong>User Experience:</strong> Integrate all visuals into a responsive web interface for faster and easier insight exploration.</li>
-				</ol>
+				</ul>
 			</div>
 		</section>
 
 		<section class="container interactive-panel" id="dashboard" aria-label="Interactive Tableau sheet section">
-			<h3 class="section-title">Interactive View: House Age Distribution by Features</h3>
+			<h3 class="section-title">House Age and Features</h3>
 			<p class="interactive-subtext">
 				This section focuses on the Tableau `Sheet6` visualization. Interact directly with bars and legends
 				to inspect how bathrooms, bedrooms, and floors vary across house-age bins.
@@ -80,12 +80,12 @@
 
 			<div class="analysis-grid">
 				<aside class="observations-card">
-					<h4>Insights from this Visualization</h4>
-					<ol>
-						<li>Mid-age homes (around 10-15 years) show the strongest combined feature counts across bathrooms, bedrooms, and floors.</li>
-						<li>The feature distribution is not uniform across age bins, indicating different construction profiles by housing generation.</li>
-						<li>Later age bins still retain notable activity, suggesting older housing stock contributes meaningful interior-capacity variation.</li>
-					</ol>
+					<h4>Insights</h4>
+					<ul>
+						<li>Peak feature density appears around mid-age homes.</li>
+						<li>Age bins show distinct interior-layout patterns.</li>
+						<li>Older stock still contributes measurable capacity.</li>
+          </ul>
 				</aside>
 
 				<div id="tableauMount" class="tableau-mount" aria-live="polite">
@@ -103,7 +103,7 @@
 		</section>
 
 		<section class="container interactive-panel" aria-label="Interactive renovation status section">
-			<h3 class="section-title">Interactive View: Distribution of House Age by Renovation Status</h3>
+			<h3 class="section-title"> House Age by Renovation Status</h3>
 			<p class="interactive-subtext">
 				This section uses Tableau `Sheet9` and focuses on how renovation status is distributed across age groups.
 				Click slices and legend values to isolate and compare renovation cohorts interactively.
@@ -121,12 +121,12 @@
 
 			<div class="analysis-grid">
 				<aside class="observations-card">
-					<h4>Insights from this Visualization</h4>
-					<ol>
-						<li>Renovation activity is more prominent in older age bands, showing reinvestment patterns in mature properties.</li>
-						<li>Newer homes have lower renovation intensity, consistent with recent construction and less immediate upgrade demand.</li>
-						<li>The distribution indicates mixed stock quality across ages, useful for targeting refurbishment and valuation strategy.</li>
-					</ol>
+					<h4>Insights</h4>
+					<ul>
+						<li>Older age groups show stronger renovation activity.</li>
+						<li>Newer homes need fewer immediate upgrades.</li>
+						<li>Mixed stock suggests targeted refurbishment opportunities.</li>
+					</ul>
 				</aside>
 
 				<div id="tableauMountRenovation" class="tableau-mount" aria-live="polite">
@@ -144,7 +144,7 @@
 		</section>
 
 		<section class="container interactive-panel" aria-label="Interactive sales by renovation years section">
-			<h3 class="section-title">Interactive View: Total Sales by Years Since Renovation</h3>
+			<h3 class="section-title">Renovation and Sales</h3>
 			<p class="interactive-subtext">
 				This section uses Tableau `Sheet7` to analyze sales counts across renovation-age ranges.
 				Interact with bars to compare demand concentration by renovation recency.
@@ -162,12 +162,12 @@
 
 			<div class="analysis-grid">
 				<aside class="observations-card">
-					<h4>Insights from this Visualization</h4>
-					<ol>
-						<li>Sales activity clusters around recently renovated properties, indicating stronger market appetite for updated homes.</li>
-						<li>As years since renovation increase, sales volume generally declines, suggesting aging renovations reduce buyer traction.</li>
-						<li>Some mid-range renovation windows still show meaningful volume, highlighting opportunity pockets in partially refreshed stock.</li>
-					</ol>
+					<h4>Insights</h4>
+					<ul>
+						<li>Recent renovations capture the highest sales activity.</li>
+						<li>Sales generally drop as renovation age increases.</li>
+						<li>Mid-range bands still contain demand pockets.</li>
+          </ul>
 				</aside>
 
 				<div id="tableauMountSales" class="tableau-mount" aria-live="polite">
@@ -184,8 +184,8 @@
 			</div>
 		</section>
 
-		<section class="container interactive-panel" aria-label="Interactive metrics summary section">
-			<h3 class="section-title">Interactive View: Core Metrics Summary</h3>
+		<section class="container interactive-panel interactive-panel--summary" aria-label="Interactive metrics summary section">
+			<h3 class="section-title">Core Metrics Summary</h3>
 			<p class="interactive-subtext">
 				This section uses Tableau Sheet10 as an interactive summary view for key market indicators.
 				Use selections to inspect how headline metrics align with the broader housing pattern.
@@ -201,27 +201,16 @@
 				</label>
 			</div>
 
-			<div class="analysis-grid">
-				<aside class="observations-card">
-					<h4>Insights from this Visualization</h4>
-					<ol>
-						<li>The dashboard-level metrics provide a quick baseline for record volume, pricing scale, and spatial capacity.</li>
-						<li>Average sale price combined with total inventory size suggests a substantial mid-to-high value market segment.</li>
-						<li>This summary view is best used as the starting context before drilling into age, renovation, and feature-specific charts.</li>
-					</ol>
-				</aside>
-
-				<div id="tableauMountSummary" class="tableau-mount" aria-live="polite">
-					<noscript>
-						<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet10">
-							<img
-								alt="Core metrics summary visualization"
-								src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet10/1_rss.png"
-								style="border: none"
-							/>
-						</a>
-					</noscript>
-				</div>
+			<div id="tableauMountSummary" class="tableau-mount tableau-mount--summary" aria-live="polite">
+				<noscript>
+					<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet10">
+						<img
+							alt="Core metrics summary visualization"
+							src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet10/1_rss.png"
+							style="border: none"
+						/>
+					</a>
+				</noscript>
 			</div>
 		</section>
 	</main>

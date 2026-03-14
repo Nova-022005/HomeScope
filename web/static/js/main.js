@@ -9,18 +9,36 @@ function getVizHeight() {
 	const viewportWidth = window.innerWidth;
 
 	if (viewportWidth >= 1400) {
-		return "72vh";
-	}
-
-	if (viewportWidth >= 1024) {
-		return "68vh";
-	}
-
-	if (viewportWidth >= 768) {
 		return "62vh";
 	}
 
-	return "58vh";
+	if (viewportWidth >= 1024) {
+		return "58vh";
+	}
+
+	if (viewportWidth >= 768) {
+		return "52vh";
+	}
+
+	return "48vh";
+}
+
+function getSummaryVizHeight() {
+	const viewportWidth = window.innerWidth;
+
+	if (viewportWidth >= 1400) {
+		return "84vh";
+	}
+
+	if (viewportWidth >= 1024) {
+		return "78vh";
+	}
+
+	if (viewportWidth >= 768) {
+		return "70vh";
+	}
+
+	return "64vh";
 }
 
 function setControlsEnabled(enabled) {
@@ -138,7 +156,7 @@ function createTableauViz4() {
 	viz4.hideTabs = false;
 	viz4.setAttribute("device", "desktop");
 	viz4.style.width = "100%";
-	viz4.style.height = getVizHeight();
+	viz4.style.height = getSummaryVizHeight();
 
 	viz4.addEventListener("firstinteractive", () => {
 		setControlsEnabled4(true);
@@ -305,7 +323,7 @@ function updateVizSize() {
 	}
 
 	if (viz4) {
-		viz4.style.height = getVizHeight();
+		viz4.style.height = getSummaryVizHeight();
 	}
 }
 
