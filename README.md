@@ -50,6 +50,8 @@ This overview provides a quick snapshot of the dataset's scale and key metrics, 
 
 Visualization: Overall Data Overview
 
+![Overall Data Overview](images/overalldataovervies.png)
+
 ### Scenario 2: Total Sales by Years Since Renovation
 This histogram illustrates the distribution of total sales based on the number of years since a house was renovated. The bars represent different sales price bins, highlighting how recently renovated houses correlate with varying price ranges.
 
