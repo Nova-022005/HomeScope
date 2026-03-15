@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>HomeScope | Housing Market Insights</title>
 	<link rel="stylesheet" href="../static/css/style.css" />
 </head>
+
 <body>
 	<header class="top-nav">
 		<div class="container nav-inner">
 			<div class="brand">
-				<span class="brand-icon">▣</span>
+				<span class="brand-icon" aria-hidden="true">
+					<svg viewBox="0 0 24 24" width="20" height="20" role="img" focusable="false">
+						<path d="M3 11.5L12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="1.8"
+							stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M6.5 10.5V20h11V10.5" fill="none" stroke="currentColor" stroke-width="1.8"
+							stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M10 20v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.8"
+							stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</span>
 				<span class="brand-text">HomeScope</span>
 			</div>
 			<nav class="nav-links" aria-label="Main navigation">
-				<a href="#dashboard">Analysis</a>
-			<a href="https://github.com/Nova-022005/HomeScope/tree/main/docs" target="_blank" rel="noopener noreferrer">Documentation</a>
-			<button id="datasetBtn" class="nav-dataset-btn" aria-label="Download housing dataset">Dataset</button>
-				<a class="github-link" href="https://github.com/Nova-022005/HomeScope.git" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+				<a href="#top" class="nav-link">Home</a>
+				<a href="dashboard.html" class="nav-link">Dashboard</a>
+				<a href="dataset.html" class="nav-link">Dataset</a>
+				<a href="#features" class="nav-link">Insights</a>
+				<a href="https://github.com/Nova-022005/HomeScope/tree/main/docs" target="_blank"
+					rel="noopener noreferrer" class="nav-link">Documentation</a>
+				<button id="datasetBtn" class="nav-dataset-btn" aria-label="Download housing dataset">Dataset</button>
+				<a class="github-link" href="https://github.com/Nova-022005/HomeScope.git" target="_blank"
+					rel="noopener noreferrer" aria-label="Open GitHub repository">
 					<svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-						<path d="M12 0.5C5.65 0.5 0.5 5.65 0.5 12c0 5.08 3.29 9.38 7.86 10.9c0.58 0.1 0.79-0.25 0.79-0.56c0-0.28-0.01-1.02-0.02-2c-3.2 0.7-3.88-1.54-3.88-1.54c-0.52-1.33-1.27-1.68-1.27-1.68c-1.04-0.71 0.08-0.7 0.08-0.7c1.15 0.08 1.75 1.18 1.75 1.18c1.02 1.75 2.67 1.24 3.32 0.95c0.1-0.74 0.4-1.24 0.72-1.53c-2.55-0.29-5.24-1.28-5.24-5.68c0-1.25 0.45-2.27 1.18-3.07c-0.12-0.29-0.51-1.46 0.11-3.05c0 0 0.97-0.31 3.17 1.17c0.92-0.26 1.9-0.39 2.88-0.4c0.98 0.01 1.96 0.13 2.88 0.4c2.2-1.49 3.17-1.17 3.17-1.17c0.63 1.59 0.23 2.76 0.11 3.05c0.73 0.8 1.18 1.82 1.18 3.07c0 4.41-2.69 5.39-5.26 5.67c0.41 0.36 0.78 1.06 0.78 2.14c0 1.55-0.01 2.79-0.01 3.17c0 0.31 0.21 0.67 0.8 0.56c4.56-1.52 7.85-5.82 7.85-10.9C23.5 5.65 18.35 0.5 12 0.5z" />
+						<path
+							d="M12 0.5C5.65 0.5 0.5 5.65 0.5 12c0 5.08 3.29 9.38 7.86 10.9c0.58 0.1 0.79-0.25 0.79-0.56c0-0.28-0.01-1.02-0.02-2c-3.2 0.7-3.88-1.54-3.88-1.54c-0.52-1.33-1.27-1.68-1.27-1.68c-1.04-0.71 0.08-0.7 0.08-0.7c1.15 0.08 1.75 1.18 1.75 1.18c1.02 1.75 2.67 1.24 3.32 0.95c0.1-0.74 0.4-1.24 0.72-1.53c-2.55-0.29-5.24-1.28-5.24-5.68c0-1.25 0.45-2.27 1.18-3.07c-0.12-0.29-0.51-1.46 0.11-3.05c0 0 0.97-0.31 3.17 1.17c0.92-0.26 1.9-0.39 2.88-0.4c0.98 0.01 1.96 0.13 2.88 0.4c2.2-1.49 3.17-1.17 3.17-1.17c0.63 1.59 0.23 2.76 0.11 3.05c0.73 0.8 1.18 1.82 1.18 3.07c0 4.41-2.69 5.39-5.26 5.67c0.41 0.36 0.78 1.06 0.78 2.14c0 1.55-0.01 2.79-0.01 3.17c0 0.31 0.21 0.67 0.8 0.56c4.56-1.52 7.85-5.82 7.85-10.9C23.5 5.65 18.35 0.5 12 0.5z" />
 					</svg>
 					<span>Repo</span>
 				</a>
@@ -27,17 +44,51 @@
 		</div>
 	</header>
 
-	<main>
+	<main id="top">
 		<section class="hero">
-			<div class="container">
-				<h1>HomeScope</h1>
-				<h2>Housing Market Insights Using Data Visualization</h2>
-				<p>
-					Deep dive into a comprehensive dataset of 21,609 records, exploring the intricate
-					relationships between property features, renovation history, and market pricing.
-					This analysis provides a structured overview of housing trends to inform strategic
-					decision-making in the real estate sector.
-				</p>
+			<div class="container hero-grid">
+				<div class="hero-copy">
+					<p class="hero-eyebrow">Tableau-driven housing intelligence</p>
+					<h1>HomeScope</h1>
+					<h2>Modern housing market analytics for smarter pricing decisions.</h2>
+					<p>
+						Explore 21,609 property records to uncover how renovation timing, house age,
+						and structural features shape market value. Our Tableau dashboards convert raw
+						data into a clear, decision-ready story.
+					</p>
+					<div class="hero-actions">
+						<a class="btn-primary" href="dashboard.html">Open Dashboard</a>
+						<button class="btn-ghost" type="button" id="datasetBtnHero">Download Dataset</button>
+					</div>
+					<div class="hero-stats">
+						<div>
+							<span class="stat-value">21,609</span>
+							<span class="stat-label">Records</span>
+						</div>
+						<div>
+							<span class="stat-value">4</span>
+							<span class="stat-label">Tableau Views</span>
+						</div>
+						<div>
+							<span class="stat-value">2026</span>
+							<span class="stat-label">Market Lens</span>
+						</div>
+					</div>
+				</div>
+				<div class="hero-visuals" aria-hidden="true">
+					<div class="feature-card">
+						<h3>Renovation Impact</h3>
+						<p>Track sales lift by renovation recency and age bands.</p>
+					</div>
+					<div class="feature-card">
+						<h3>Feature Sensitivity</h3>
+						<p>Compare bathroom, bedroom, and floor counts across cohorts.</p>
+					</div>
+					<div class="feature-card">
+						<h3>Market Snapshot</h3>
+						<p>Summaries that spotlight pricing, demand, and inventory mix.</p>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -45,24 +96,32 @@
 			<h3 class="section-title">Project Overview</h3>
 			<div class="project-overview-card">
 				<p class="overview-lead">
-					HomeScope began as a raw housing-data initiative and evolved into an interactive decision-support experience.
-					We collected property records, inspected quality issues, and cleaned inconsistencies so every feature could be trusted for comparison.
-					Once the dataset became reliable, we analyzed renovation history, house age, structural features, and price behavior to uncover
-					market patterns. Those findings were then visualized in Tableau and finally integrated into this web interface, so users can move
+					HomeScope began as a raw housing-data initiative and evolved into an interactive decision-support
+					experience.
+					We collected property records, inspected quality issues, and cleaned inconsistencies so every
+					feature could be trusted for comparison.
+					Once the dataset became reliable, we analyzed renovation history, house age, structural features,
+					and price behavior to uncover
+					market patterns. Those findings were then visualized in Tableau and finally integrated into this web
+					interface, so users can move
 					from summary to deep analysis through an intuitive and interactive flow.
 				</p>
 
 				<h4>Project Objectives</h4>
 				<ul class="overview-objectives">
-					<li><strong>Data Foundation:</strong> Build a clean, validated, and structured housing dataset from raw records.</li>
-					<li><strong>Pattern Discovery:</strong> Identify how renovation timing, property age, and interior features influence market behavior.</li>
-					<li><strong>Visual Communication:</strong> Transform analysis outputs into interactive Tableau views that make insights easy to understand.</li>
-					<li><strong>User Experience:</strong> Integrate all visuals into a responsive web interface for faster and easier insight exploration.</li>
+					<li><strong>Data Foundation:</strong> Build a clean, validated, and structured housing dataset from
+						raw records.</li>
+					<li><strong>Pattern Discovery:</strong> Identify how renovation timing, property age, and interior
+						features influence market behavior.</li>
+					<li><strong>Visual Communication:</strong> Transform analysis outputs into interactive Tableau views
+						that make insights easy to understand.</li>
+					<li><strong>User Experience:</strong> Integrate all visuals into a responsive web interface for
+						faster and easier insight exploration.</li>
 				</ul>
 			</div>
 		</section>
 
-		<section class="container interactive-panel" id="dashboard" aria-label="Interactive Tableau sheet section">
+		<section class="container interactive-panel" id="features" aria-label="Interactive Tableau sheet section">
 			<h3 class="section-title">House Age and Features</h3>
 			<p class="interactive-subtext">
 				This section focuses on the Tableau `Sheet6` visualization. Interact directly with bars and legends
@@ -86,17 +145,15 @@
 						<li>Peak feature density appears around mid-age homes.</li>
 						<li>Age bins show distinct interior-layout patterns.</li>
 						<li>Older stock still contributes measurable capacity.</li>
-          </ul>
+					</ul>
 				</aside>
 
 				<div id="tableauMount" class="tableau-mount" aria-live="polite">
 					<noscript>
 						<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet6">
-							<img
-								alt="House Age Distribution by Number of Bathrooms, Bedrooms, and Floors"
+							<img alt="House Age Distribution by Number of Bathrooms, Bedrooms, and Floors"
 								src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet6/1_rss.png"
-								style="border: none"
-							/>
+								style="border: none" />
 						</a>
 					</noscript>
 				</div>
@@ -106,7 +163,8 @@
 		<section class="container interactive-panel" aria-label="Interactive renovation status section">
 			<h3 class="section-title"> House Age by Renovation Status</h3>
 			<p class="interactive-subtext">
-				This section uses Tableau `Sheet9` and focuses on how renovation status is distributed across age groups.
+				This section uses Tableau `Sheet9` and focuses on how renovation status is distributed across age
+				groups.
 				Click slices and legend values to isolate and compare renovation cohorts interactively.
 			</p>
 			<div class="viz-controls" role="group" aria-label="Tableau controls for renovation view">
@@ -133,11 +191,9 @@
 				<div id="tableauMountRenovation" class="tableau-mount" aria-live="polite">
 					<noscript>
 						<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet9">
-							<img
-								alt="Distribution of House Age by Renovation Status"
+							<img alt="Distribution of House Age by Renovation Status"
 								src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet9/1_rss.png"
-								style="border: none"
-							/>
+								style="border: none" />
 						</a>
 					</noscript>
 				</div>
@@ -168,52 +224,22 @@
 						<li>Recent renovations capture the highest sales activity.</li>
 						<li>Sales generally drop as renovation age increases.</li>
 						<li>Mid-range bands still contain demand pockets.</li>
-          </ul>
+					</ul>
 				</aside>
 
 				<div id="tableauMountSales" class="tableau-mount" aria-live="polite">
 					<noscript>
 						<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet7">
-							<img
-								alt="Total Sales By Years Since Renovation"
+							<img alt="Total Sales By Years Since Renovation"
 								src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet7/1_rss.png"
-								style="border: none"
-							/>
+								style="border: none" />
 						</a>
 					</noscript>
 				</div>
 			</div>
 		</section>
 
-		<section class="container interactive-panel interactive-panel--summary" aria-label="Interactive metrics summary section">
-			<h3 class="section-title">Core Metrics Summary</h3>
-			<p class="interactive-subtext">
-				This section uses Tableau Sheet10 as an interactive summary view for key market indicators.
-				Use selections to inspect how headline metrics align with the broader housing pattern.
-			</p>
-			<div class="viz-controls" role="group" aria-label="Tableau controls for summary view">
-				<button id="undoBtn4" type="button">Undo</button>
-				<button id="redoBtn4" type="button">Redo</button>
-				<button id="resetBtn4" type="button">Reset</button>
-				<button id="fullscreenBtn4" type="button">Fullscreen</button>
-				<label class="toolbar-toggle" for="toolbarToggle4">
-					<input id="toolbarToggle4" type="checkbox" checked />
-					Show Toolbar
-				</label>
-			</div>
 
-			<div id="tableauMountSummary" class="tableau-mount tableau-mount--summary" aria-live="polite">
-				<noscript>
-					<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet10">
-						<img
-							alt="Core metrics summary visualization"
-							src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet10/1_rss.png"
-							style="border: none"
-						/>
-					</a>
-				</noscript>
-			</div>
-		</section>
 	</main>
 
 	<footer id="documentation">
@@ -262,7 +288,7 @@
 					</div>
 				</div>
 				<p class="modal-description">
-					This dataset contains comprehensive housing information including property characteristics, 
+					This dataset contains comprehensive housing information including property characteristics,
 					renovation details, and market pricing. Ready for analysis and visualization.
 				</p>
 			</div>
@@ -276,4 +302,5 @@
 
 	<script type="module" src="../static/js/main.js"></script>
 </body>
+
 </html>

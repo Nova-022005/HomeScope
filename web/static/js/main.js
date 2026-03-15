@@ -4,6 +4,14 @@ let viz;
 let viz2;
 let viz3;
 let viz4;
+let vizDashboard;
+
+function getDatasetUrl() {
+	const path = window.location.pathname;
+	const repoMatch = path.match(/\/([^/]+)\/web\/templates\//);
+	const repoBase = repoMatch ? `/${repoMatch[1]}` : "";
+	return `${repoBase}/data/Transformed_Housing_Data2.csv`;
+}
 
 function getVizHeight() {
 	const viewportWidth = window.innerWidth;
@@ -73,6 +81,22 @@ function setControlsEnabled3(enabled) {
 
 function setControlsEnabled4(enabled) {
 	const controlIds = ["undoBtn4", "redoBtn4", "resetBtn4", "fullscreenBtn4", "toolbarToggle4"];
+	for (const id of controlIds) {
+		const control = document.getElementById(id);
+		if (control) {
+			control.disabled = !enabled;
+		}
+	}
+}
+
+function setControlsEnabledDashboard(enabled) {
+	const controlIds = [
+		"undoBtnDashboard",
+		"redoBtnDashboard",
+		"resetBtnDashboard",
+		"fullscreenBtnDashboard",
+		"toolbarToggleDashboard",
+	];
 	for (const id of controlIds) {
 		const control = document.getElementById(id);
 		if (control) {
@@ -165,6 +189,27 @@ function createTableauViz4() {
 	mount.appendChild(viz4);
 }
 
+function createDashboardViz() {
+	const mount = document.getElementById("tableauMountDashboard");
+	if (!mount) {
+		return;
+	}
+
+	vizDashboard = new TableauViz();
+	vizDashboard.src = "https://public.tableau.com/views/completeskillwalletproject/Dashboard1?:showVizHome=no";
+	vizDashboard.toolbar = "bottom";
+	vizDashboard.hideTabs = true;
+	vizDashboard.setAttribute("device", "desktop");
+	vizDashboard.style.width = "100%";
+	vizDashboard.style.height = getSummaryVizHeight();
+
+	vizDashboard.addEventListener("firstinteractive", () => {
+		setControlsEnabledDashboard(true);
+	});
+
+	mount.appendChild(vizDashboard);
+}
+
 async function undoAction() {
 	if (!viz || !viz.workbook) {
 		return;
@@ -235,6 +280,13 @@ async function undoAction4() {
 	await viz4.workbook.undoAsync();
 }
 
+async function undoDashboardAction() {
+	if (!vizDashboard || !vizDashboard.workbook) {
+		return;
+	}
+	await vizDashboard.workbook.undoAsync();
+}
+
 async function redoAction4() {
 	if (!viz4 || !viz4.workbook) {
 		return;
@@ -242,11 +294,25 @@ async function redoAction4() {
 	await viz4.workbook.redoAsync();
 }
 
+async function redoDashboardAction() {
+	if (!vizDashboard || !vizDashboard.workbook) {
+		return;
+	}
+	await vizDashboard.workbook.redoAsync();
+}
+
 async function resetAction4() {
 	if (!viz4 || !viz4.workbook) {
 		return;
 	}
 	await viz4.workbook.revertAllAsync();
+}
+
+async function resetDashboardAction() {
+	if (!vizDashboard || !vizDashboard.workbook) {
+		return;
+	}
+	await vizDashboard.workbook.revertAllAsync();
 }
 
 function fullscreenAction() {
@@ -272,6 +338,13 @@ function fullscreenAction3() {
 
 function fullscreenAction4() {
 	const mount = document.getElementById("tableauMountSummary");
+	if (mount && mount.requestFullscreen) {
+		mount.requestFullscreen();
+	}
+}
+
+function fullscreenDashboardAction() {
+	const mount = document.getElementById("tableauMountDashboard");
 	if (mount && mount.requestFullscreen) {
 		mount.requestFullscreen();
 	}
@@ -309,6 +382,15 @@ function toggleToolbarAction4(event) {
 	viz4.toolbar = event.target.checked ? "bottom" : "hidden";
 }
 
+function toggleToolbarDashboardAction(event) {
+	if (!vizDashboard) {
+		return;
+	}
+
+	vizDashboard.toolbar = event.target.checked ? "bottom" : "hidden";
+	vizDashboard.refresh();
+}
+
 function updateVizSize() {
 	if (viz) {
 		viz.style.height = getVizHeight();
@@ -324,6 +406,10 @@ function updateVizSize() {
 
 	if (viz4) {
 		viz4.style.height = getSummaryVizHeight();
+	}
+
+	if (vizDashboard) {
+		vizDashboard.style.height = getSummaryVizHeight();
 	}
 }
 
@@ -359,6 +445,14 @@ function bindControls4() {
 	document.getElementById("toolbarToggle4")?.addEventListener("change", toggleToolbarAction4);
 }
 
+function bindDashboardControls() {
+	document.getElementById("undoBtnDashboard")?.addEventListener("click", undoDashboardAction);
+	document.getElementById("redoBtnDashboard")?.addEventListener("click", redoDashboardAction);
+	document.getElementById("resetBtnDashboard")?.addEventListener("click", resetDashboardAction);
+	document.getElementById("fullscreenBtnDashboard")?.addEventListener("click", fullscreenDashboardAction);
+	document.getElementById("toolbarToggleDashboard")?.addEventListener("change", toggleToolbarDashboardAction);
+}
+
 /* Dataset Modal Functions */
 function openDatasetModal() {
 	const modal = document.getElementById("datasetModal");
@@ -375,7 +469,7 @@ function closeDatasetModal() {
 }
 
 function downloadDataset() {
-	const csvPath = "../../data/Transformed_Housing_Data2.csv";
+	const csvPath = getDatasetUrl();
 	const link = document.createElement("a");
 	link.href = csvPath;
 	link.download = "Transformed_Housing_Data2.csv";
@@ -385,15 +479,116 @@ function downloadDataset() {
 	closeDatasetModal();
 }
 
+function parseCsv(text) {
+	const rows = text.split(/\r?\n/).filter((line) => line.trim().length > 0);
+	if (rows.length === 0) {
+		return { headers: [], data: [] };
+	}
+
+	const headers = rows[0].split(",");
+	const data = rows.slice(1).map((row) => row.split(","));
+	return { headers, data };
+}
+
+function renderDatasetTable(headers, rows) {
+	const table = document.getElementById("datasetTable");
+	if (!table) {
+		return;
+	}
+
+	const thead = table.querySelector("thead");
+	const tbody = table.querySelector("tbody");
+	if (!thead || !tbody) {
+		return;
+	}
+
+	thead.innerHTML = "";
+	tbody.innerHTML = "";
+
+	const headerRow = document.createElement("tr");
+	thead.appendChild(headerRow);
+	for (const header of headers) {
+		const th = document.createElement("th");
+		th.textContent = header;
+		headerRow.appendChild(th);
+	}
+
+	for (const row of rows) {
+		const tr = document.createElement("tr");
+		for (const cell of row) {
+			const td = document.createElement("td");
+			td.textContent = cell;
+			tr.appendChild(td);
+		}
+		tbody.appendChild(tr);
+	}
+}
+
+async function loadDatasetPreview() {
+	const status = document.getElementById("datasetStatus");
+	const searchInput = document.getElementById("datasetSearch");
+	const limitSelect = document.getElementById("datasetLimit");
+	const refreshBtn = document.getElementById("datasetRefresh");
+	const copyBtn = document.getElementById("copyDatasetLink");
+
+	if (!status || !searchInput || !limitSelect || !refreshBtn || !copyBtn) {
+		return;
+	}
+
+	let parsed = { headers: [], data: [] };
+
+	async function fetchAndRender() {
+		status.textContent = "Loading dataset...";
+		try {
+			const response = await fetch(getDatasetUrl());
+			const text = await response.text();
+			parsed = parseCsv(text);
+			applyFilter();
+		} catch (error) {
+			status.textContent = "Unable to load dataset preview.";
+		}
+	}
+
+	function applyFilter() {
+		const query = searchInput.value.trim().toLowerCase();
+		const limit = Number(limitSelect.value);
+		const filtered = parsed.data.filter((row) => {
+			if (!query) {
+				return true;
+			}
+			return row.join(" ").toLowerCase().includes(query);
+		});
+
+		const preview = filtered.slice(0, limit);
+		renderDatasetTable(parsed.headers, preview);
+		status.textContent = `Showing ${preview.length} of ${filtered.length} rows.`;
+	}
+
+	searchInput.addEventListener("input", applyFilter);
+	limitSelect.addEventListener("change", applyFilter);
+	refreshBtn.addEventListener("click", fetchAndRender);
+	copyBtn.addEventListener("click", () => {
+		navigator.clipboard.writeText(getDatasetUrl());
+		copyBtn.textContent = "Link Copied";
+		setTimeout(() => {
+			copyBtn.textContent = "Copy Link";
+		}, 1200);
+	});
+
+	await fetchAndRender();
+}
+
 window.addEventListener("DOMContentLoaded", () => {
 	/* Dataset Modal Event Listeners */
 	const datasetBtn = document.getElementById("datasetBtn");
+	const datasetBtnHero = document.getElementById("datasetBtnHero");
 	const closeBtn = document.getElementById("closeModalBtn");
 	const cancelBtn = document.getElementById("cancelBtn");
 	const downloadBtn = document.getElementById("downloadConfirmBtn");
 	const backdrop = document.getElementById("modalBackdrop");
 
 	datasetBtn?.addEventListener("click", openDatasetModal);
+	datasetBtnHero?.addEventListener("click", openDatasetModal);
 	closeBtn?.addEventListener("click", closeDatasetModal);
 	cancelBtn?.addEventListener("click", closeDatasetModal);
 	downloadBtn?.addEventListener("click", downloadDataset);
@@ -403,6 +598,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	setControlsEnabled2(false);
 	setControlsEnabled3(false);
 	setControlsEnabled4(false);
+	setControlsEnabledDashboard(false);
 	bindControls();
 	bindControls2();
 	bindControls3();
@@ -411,6 +607,14 @@ window.addEventListener("DOMContentLoaded", () => {
 	createTableauViz2();
 	createTableauViz3();
 	createTableauViz4();
+	bindDashboardControls();
+	createDashboardViz();
+	loadDatasetPreview();
+
+	const datasetLinks = document.querySelectorAll("[data-dataset-link]");
+	for (const link of datasetLinks) {
+		link.setAttribute("href", getDatasetUrl());
+	}
 	updateVizSize();
 });
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeScope | Dataset</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+
+<body>
+    <header class="top-nav">
+        <div class="container nav-inner">
+            <div class="brand">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" role="img" focusable="false">
+                        <path d="M3 11.5L12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6.5 10.5V20h11V10.5" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 20v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <span class="brand-text">HomeScope</span>
+            </div>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="dataset.html" class="nav-link">Dataset</a>
+                <a href="index.html#features" class="nav-link">Insights</a>
+                <a href="https://github.com/Nova-022005/HomeScope/tree/main/docs" target="_blank"
+                    rel="noopener noreferrer" class="nav-link">Documentation</a>
+                <button id="datasetBtn" class="nav-dataset-btn" aria-label="Download housing dataset">Dataset</button>
+                <a class="github-link" href="https://github.com/Nova-022005/HomeScope.git" target="_blank"
+                    rel="noopener noreferrer" aria-label="Open GitHub repository">
+                    <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path
+                            d="M12 0.5C5.65 0.5 0.5 5.65 0.5 12c0 5.08 3.29 9.38 7.86 10.9c0.58 0.1 0.79-0.25 0.79-0.56c0-0.28-0.01-1.02-0.02-2c-3.2 0.7-3.88-1.54-3.88-1.54c-0.52-1.33-1.27-1.68-1.27-1.68c-1.04-0.71 0.08-0.7 0.08-0.7c1.15 0.08 1.75 1.18 1.75 1.18c1.02 1.75 2.67 1.24 3.32 0.95c0.1-0.74 0.4-1.24 0.72-1.53c-2.55-0.29-5.24-1.28-5.24-5.68c0-1.25 0.45-2.27 1.18-3.07c-0.12-0.29-0.51-1.46 0.11-3.05c0 0 0.97-0.31 3.17 1.17c0.92-0.26 1.9-0.39 2.88-0.4c0.98 0.01 1.96 0.13 2.88 0.4c2.2-1.49 3.17-1.17 3.17-1.17c0.63 1.59 0.23 2.76 0.11 3.05c0.73 0.8 1.18 1.82 1.18 3.07c0 4.41-2.69 5.39-5.26 5.67c0.41 0.36 0.78 1.06 0.78 2.14c0 1.55-0.01 2.79-0.01 3.17c0 0.31 0.21 0.67 0.8 0.56c4.56-1.52 7.85-5.82 7.85-10.9C23.5 5.65 18.35 0.5 12 0.5z" />
+                    </svg>
+                    <span>Repo</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dataset-page">
+        <section class="container dataset-panel">
+            <div class="dataset-hero">
+                <div>
+                    <p class="section-kicker">Dataset access</p>
+                    <h3 class="section-title">Transformed Housing Dataset</h3>
+                    <p class="interactive-subtext">
+                        Browse, filter, and download the cleaned dataset used across all Tableau visuals.
+                    </p>
+                </div>
+                <div class="dataset-actions">
+                    <a class="btn-primary" data-dataset-link download>Download CSV</a>
+                    <button class="btn-ghost" id="copyDatasetLink" type="button">Copy Link</button>
+                </div>
+            </div>
+
+            <div class="dataset-controls">
+                <label>
+                    <span>Search</span>
+                    <input id="datasetSearch" type="text" placeholder="Filter rows..." />
+                </label>
+                <label>
+                    <span>Rows</span>
+                    <select id="datasetLimit">
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100" selected>100</option>
+                        <option value="250">250</option>
+                    </select>
+                </label>
+                <button class="btn-ghost" id="datasetRefresh" type="button">Refresh</button>
+            </div>
+
+            <div class="dataset-table-wrap">
+                <table class="dataset-table" id="datasetTable">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+                <p class="dataset-note" id="datasetStatus">Loading dataset...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dataset Download Dialog -->
+    <div id="datasetModal" class="dataset-modal">
+        <div class="dataset-modal-content">
+            <div class="modal-header">
+                <h3>Download Housing Dataset</h3>
+                <button id="closeModalBtn" class="modal-close" aria-label="Close dialog">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="dataset-info">
+                    <div class="info-item">
+                        <span class="info-label">Total Records:</span>
+                        <span class="info-value">21,609 rows</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Size:</span>
+                        <span class="info-value">4.8 MB</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Type:</span>
+                        <span class="info-value">.csv</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Content:</span>
+                        <span class="info-value">Housing_dataset</span>
+                    </div>
+                </div>
+                <p class="modal-description">
+                    This dataset contains comprehensive housing information including property characteristics,
+                    renovation details, and market pricing. Ready for analysis and visualization.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBtn" class="modal-btn modal-btn-cancel">Cancel</button>
+                <button id="downloadConfirmBtn" class="modal-btn modal-btn-download">📥 Download CSV</button>
+            </div>
+        </div>
+    </div>
+    <div id="modalBackdrop" class="modal-backdrop"></div>
+
+    <script type="module" src="../static/js/main.js"></script>
+</body>
+
+</html>

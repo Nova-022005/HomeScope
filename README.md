@@ -1,9 +1,11 @@
 # Visualizing Housing Market Trends: An Analysis of Sale Prices and Features (Tableau)
 
 ## Project Overview
+
 This project explores housing market trends using Tableau to visualize sale prices and key property features. The goal is to uncover patterns, highlight influential factors, and present insights through clear, interactive visuals and a consolidated dashboard.
 
 ## 🎯 Project Objectives
+
 - Analyze housing market trends and factors influencing house prices
 - Visualize the relationship between house features (bathrooms, bedrooms, floors) and sales prices
 - Understand the impact of renovations on property values
@@ -11,15 +13,18 @@ This project explores housing market trends using Tableau to visualize sale pric
 - Deploy a web-based interface for easy access to insights
 
 ## Dataset
+
 - File: [data/Transformed_Housing_Data2.csv](data/Transformed_Housing_Data2.csv)
 - Location: `data/Transformed_Housing_Data2.csv`
 - Download: Click the file link above to download the dataset
 
 ## Data Collection and Extraction
+
 - Source: Provided dataset file (`Transformed_Housing_Data2.csv`)
 - Download form: Local file in the workspace (no external download required)
 
 ## Data Preparation
+
 This process helps to make the data easily understandable and ready for creating visualizations to gain insights into the performance and efficiency. Follow these steps to make sure it’s ready for analysis:
 
 **Data Review & Exploration:**
@@ -40,6 +45,7 @@ Lastly, quickly verify your data by comparing key numbers with the original sour
 ## Data Analysis Scenarios
 
 ### Scenario 1: Overall Data Overview
+
 This visualization presents a summary of the dataset, showing:
 
 - Count of transformed housing data records
@@ -53,6 +59,7 @@ Visualization: Overall Data Overview
 ![Overall Data Overview](images/overalldataovervies.png)
 
 ### Scenario 2: Total Sales by Years Since Renovation
+
 This histogram illustrates the distribution of total sales based on the number of years since a house was renovated. The bars represent different sales price bins, highlighting how recently renovated houses correlate with varying price ranges.
 
 Key Insights:
@@ -66,6 +73,7 @@ Visualization:
 ![Total Sales by Years Since Renovation](images/total_sales_by_years_since_renovation.png)
 
 ### Scenario 3: Distribution of House Age by Renovation Status
+
 This pie chart shows the distribution of houses based on their age and renovation status. Each segment represents a different age group, providing insight into:
 
 - Age distribution across the housing dataset
@@ -77,6 +85,7 @@ Visualization:
 ![House Age Distribution by Renovation Status](images/Distribution_of_house_agent_by_renovation_status.png)
 
 ### Scenario 4: House Age Distribution by Number of Bathrooms, Bedrooms, and Floors
+
 This grouped bar chart displays the distribution of house ages categorized by:
 
 - Number of bathrooms
@@ -90,6 +99,7 @@ Visualization:
 ![House Age Distribution by Features](images/house%20age%20distriibution.png)
 
 ## 🛠️ Technologies Used
+
 - Tableau - Data visualization and dashboard creation
 - Python - Data processing and analysis
 - Flask - Web framework for dashboard integration
@@ -98,6 +108,7 @@ Visualization:
 - CSV - Data storage format
 
 ## 📁 Project Structure
+
 ```
 HomeScope/
 ├── README.md                          # Project documentation
@@ -119,22 +130,27 @@ HomeScope/
 ```
 
 ## Usage
+
 ### Data Preparation
+
 - Review and validate the dataset in `data/Transformed_Housing_Data2.csv`.
 - Apply filtering, renaming, and calculated fields as required for the analysis goals.
 
 ### Creating Visualizations
+
 - Open the dataset in Tableau.
 - Build the charts listed in the Data Analysis Scenarios section.
 - Export visuals to the `images/` folder.
 
 ### Dashboard Access
+
 - Open the Tableau dashboard from `tableau/dashboards/`.
 - Use filters to explore trends by renovation status, house age, and features.
 
 ## 📊 Dashboard & Visualizations
 
 ### Interactive Dashboard
+
 ![Housing Market Trends Dashboard](images/dashboard.png)
 
 Features:
@@ -145,40 +161,49 @@ Features:
 - Export functionality for reports
 
 ### Key Visualizations
+
 - Sales Trend Analysis
 - Feature Correlation Matrix
 - Geographic Distribution
 
 ## ⚡ Performance Testing
+
 Performance testing criteria include:
 
 ### Data Filters
+
 - Filter Response Time:
 - Filter Combinations:
 - Data Load Time:
 
 ### Calculation Fields
+
 - Number of Calculated Fields:
 - Calculation Complexity:
 - Performance Impact:
 
 ### Visualizations/Graphs
+
 - Total Number of Visualizations:
 - Average Render Time:
 - Dashboard Load Time:
 
 ### Performance Benchmarks
+
 - Initial Load:
 - Filter Application:
 - Dashboard Refresh:
 
 ## 🌐 Web Integration
+
 This repository contains the web integration of the Tableau dashboards using Flask.
 
 ### Flask Application Structure
+
 - `web/` contains templates and static assets for the UI.
 
 ### Embedded Dashboard
+
 The Tableau dashboard is embedded into the web application using Tableau's JavaScript API, providing:
 
 - Seamless integration with existing web applications
@@ -187,17 +212,21 @@ The Tableau dashboard is embedded into the web application using Tableau's JavaS
 - Extended functionality through custom interactions
 
 ### API Endpoints
+
 - Define endpoints in the Flask app for data delivery and embedding support.
 
 ### Deployment
+
 - Run the Flask app locally or deploy to a hosting platform.
 
 ## 🎬 Project Demonstration
+
 - Screenshots: See the `images/` folder
 - Video Walkthrough: TBD
 - Live Demo: TBD
 
 ## 📝 Documentation
+
 For detailed documentation on each component:
 
 - Data Collection Process
@@ -208,6 +237,7 @@ For detailed documentation on each component:
 - Deployment Guide
 
 ## 👥 Contributors
+
 <table>
     <tr>
         <td align="center">
@@ -242,4 +272,5 @@ For detailed documentation on each component:
 </table>
 
 ## 📄 License
+
 Note: This project is part of a comprehensive housing market analysis initiative. All data has been transformed and anonymized for analysis purposes.
