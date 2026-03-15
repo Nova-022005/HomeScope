@@ -4,7 +4,7 @@
 
 This project explores housing market trends using Tableau to visualize sale prices and key property features. The goal is to uncover patterns, highlight influential factors, and present insights through clear, interactive visuals and a consolidated dashboard.
 
-## 🎯 Project Objectives
+## Project Objectives
 
 - Analyze housing market trends and factors influencing house prices
 - Visualize the relationship between house features (bathrooms, bedrooms, floors) and sales prices
@@ -98,7 +98,7 @@ Visualization:
 
 ![House Age Distribution by Features](images/house%20age%20distriibution.png)
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - Tableau - Data visualization and dashboard creation
 - Python - Data processing and analysis
@@ -107,7 +107,7 @@ Visualization:
 - Pandas - Data manipulation and preparation
 - CSV - Data storage format
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 HomeScope/
@@ -166,7 +166,7 @@ Features:
 - Feature Correlation Matrix
 - Geographic Distribution
 
-## ⚡ Performance Testing
+## Performance Testing
 
 Performance testing criteria include:
 
@@ -198,10 +198,6 @@ Performance testing criteria include:
 
 This repository contains the web integration of the Tableau dashboards using Flask.
 
-### Flask Application Structure
-
-- `web/` contains templates and static assets for the UI.
-
 ### Embedded Dashboard
 
 The Tableau dashboard is embedded into the web application using Tableau's JavaScript API, providing:
@@ -211,21 +207,13 @@ The Tableau dashboard is embedded into the web application using Tableau's JavaS
 - Enhanced user authentication and access control
 - Extended functionality through custom interactions
 
-### API Endpoints
-
-- Define endpoints in the Flask app for data delivery and embedding support.
-
-### Deployment
-
-- Run the Flask app locally or deploy to a hosting platform.
-
-## 🎬 Project Demonstration
+## Project Demonstration
 
 - Screenshots: See the `images/` folder
 - Video Walkthrough: TBD
 - Live Demo: TBD
 
-## 📝 Documentation
+## Documentation
 
 For detailed documentation on each component:
 
@@ -236,7 +224,7 @@ For detailed documentation on each component:
 - Performance Testing Results
 - Deployment Guide
 
-## 👥 Contributors
+## Team members
 
 <table>
     <tr>
