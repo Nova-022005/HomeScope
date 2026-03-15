@@ -48,7 +48,7 @@ This visualization presents a summary of the dataset, showing:
 
 This overview provides a quick snapshot of the dataset's scale and key metrics, offering stakeholders a foundational understanding of the data being analyzed.
 
-Visualization: Overall Data Overview
+Visualization:
 
 ![Overall Data Overview](images/overalldataovervies.png)
 
