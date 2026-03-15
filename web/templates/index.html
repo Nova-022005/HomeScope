@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>HomeScope | Housing Market Insights</title>
+	<link rel="stylesheet" href="../static/css/style.css" />
+</head>
+<body>
+	<header class="top-nav">
+		<div class="container nav-inner">
+			<div class="brand">
+				<span class="brand-icon">▣</span>
+				<span class="brand-text">HomeScope</span>
+			</div>
+			<nav class="nav-links" aria-label="Main navigation">
+				<a href="#dashboard">Analysis</a>
+			<a href="https://github.com/Nova-022005/HomeScope/tree/main/docs" target="_blank" rel="noopener noreferrer">Documentation</a>
+			<button id="datasetBtn" class="nav-dataset-btn" aria-label="Download housing dataset">Dataset</button>
+				<a class="github-link" href="https://github.com/Nova-022005/HomeScope.git" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+					<svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<path d="M12 0.5C5.65 0.5 0.5 5.65 0.5 12c0 5.08 3.29 9.38 7.86 10.9c0.58 0.1 0.79-0.25 0.79-0.56c0-0.28-0.01-1.02-0.02-2c-3.2 0.7-3.88-1.54-3.88-1.54c-0.52-1.33-1.27-1.68-1.27-1.68c-1.04-0.71 0.08-0.7 0.08-0.7c1.15 0.08 1.75 1.18 1.75 1.18c1.02 1.75 2.67 1.24 3.32 0.95c0.1-0.74 0.4-1.24 0.72-1.53c-2.55-0.29-5.24-1.28-5.24-5.68c0-1.25 0.45-2.27 1.18-3.07c-0.12-0.29-0.51-1.46 0.11-3.05c0 0 0.97-0.31 3.17 1.17c0.92-0.26 1.9-0.39 2.88-0.4c0.98 0.01 1.96 0.13 2.88 0.4c2.2-1.49 3.17-1.17 3.17-1.17c0.63 1.59 0.23 2.76 0.11 3.05c0.73 0.8 1.18 1.82 1.18 3.07c0 4.41-2.69 5.39-5.26 5.67c0.41 0.36 0.78 1.06 0.78 2.14c0 1.55-0.01 2.79-0.01 3.17c0 0.31 0.21 0.67 0.8 0.56c4.56-1.52 7.85-5.82 7.85-10.9C23.5 5.65 18.35 0.5 12 0.5z" />
+					</svg>
+					<span>Repo</span>
+				</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<div class="container">
+				<h1>HomeScope</h1>
+				<h2>Housing Market Insights Using Data Visualization</h2>
+				<p>
+					Deep dive into a comprehensive dataset of 21,609 records, exploring the intricate
+					relationships between property features, renovation history, and market pricing.
+					This analysis provides a structured overview of housing trends to inform strategic
+					decision-making in the real estate sector.
+				</p>
+			</div>
+		</section>
+
+		<section class="container project-overview" id="project-overview">
+			<h3 class="section-title">Project Overview</h3>
+			<div class="project-overview-card">
+				<p class="overview-lead">
+					HomeScope began as a raw housing-data initiative and evolved into an interactive decision-support experience.
+					We collected property records, inspected quality issues, and cleaned inconsistencies so every feature could be trusted for comparison.
+					Once the dataset became reliable, we analyzed renovation history, house age, structural features, and price behavior to uncover
+					market patterns. Those findings were then visualized in Tableau and finally integrated into this web interface, so users can move
+					from summary to deep analysis through an intuitive and interactive flow.
+				</p>
+
+				<h4>Project Objectives</h4>
+				<ul class="overview-objectives">
+					<li><strong>Data Foundation:</strong> Build a clean, validated, and structured housing dataset from raw records.</li>
+					<li><strong>Pattern Discovery:</strong> Identify how renovation timing, property age, and interior features influence market behavior.</li>
+					<li><strong>Visual Communication:</strong> Transform analysis outputs into interactive Tableau views that make insights easy to understand.</li>
+					<li><strong>User Experience:</strong> Integrate all visuals into a responsive web interface for faster and easier insight exploration.</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="container interactive-panel" id="dashboard" aria-label="Interactive Tableau sheet section">
+			<h3 class="section-title">House Age and Features</h3>
+			<p class="interactive-subtext">
+				This section focuses on the Tableau `Sheet6` visualization. Interact directly with bars and legends
+				to inspect how bathrooms, bedrooms, and floors vary across house-age bins.
+			</p>
+			<div class="viz-controls" role="group" aria-label="Tableau controls">
+				<button id="undoBtn" type="button">Undo</button>
+				<button id="redoBtn" type="button">Redo</button>
+				<button id="resetBtn" type="button">Reset</button>
+				<button id="fullscreenBtn" type="button">Fullscreen</button>
+				<label class="toolbar-toggle" for="toolbarToggle">
+					<input id="toolbarToggle" type="checkbox" checked />
+					Show Toolbar
+				</label>
+			</div>
+
+			<div class="analysis-grid">
+				<aside class="observations-card">
+					<h4>Insights</h4>
+					<ul>
+						<li>Peak feature density appears around mid-age homes.</li>
+						<li>Age bins show distinct interior-layout patterns.</li>
+						<li>Older stock still contributes measurable capacity.</li>
+          </ul>
+				</aside>
+
+				<div id="tableauMount" class="tableau-mount" aria-live="polite">
+					<noscript>
+						<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet6">
+							<img
+								alt="House Age Distribution by Number of Bathrooms, Bedrooms, and Floors"
+								src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet6/1_rss.png"
+								style="border: none"
+							/>
+						</a>
+					</noscript>
+				</div>
+			</div>
+		</section>
+
+		<section class="container interactive-panel" aria-label="Interactive renovation status section">
+			<h3 class="section-title"> House Age by Renovation Status</h3>
+			<p class="interactive-subtext">
+				This section uses Tableau `Sheet9` and focuses on how renovation status is distributed across age groups.
+				Click slices and legend values to isolate and compare renovation cohorts interactively.
+			</p>
+			<div class="viz-controls" role="group" aria-label="Tableau controls for renovation view">
+				<button id="undoBtn2" type="button">Undo</button>
+				<button id="redoBtn2" type="button">Redo</button>
+				<button id="resetBtn2" type="button">Reset</button>
+				<button id="fullscreenBtn2" type="button">Fullscreen</button>
+				<label class="toolbar-toggle" for="toolbarToggle2">
+					<input id="toolbarToggle2" type="checkbox" checked />
+					Show Toolbar
+				</label>
+			</div>
+
+			<div class="analysis-grid">
+				<aside class="observations-card">
+					<h4>Insights</h4>
+					<ul>
+						<li>Older age groups show stronger renovation activity.</li>
+						<li>Newer homes need fewer immediate upgrades.</li>
+						<li>Mixed stock suggests targeted refurbishment opportunities.</li>
+					</ul>
+				</aside>
+
+				<div id="tableauMountRenovation" class="tableau-mount" aria-live="polite">
+					<noscript>
+						<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet9">
+							<img
+								alt="Distribution of House Age by Renovation Status"
+								src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet9/1_rss.png"
+								style="border: none"
+							/>
+						</a>
+					</noscript>
+				</div>
+			</div>
+		</section>
+
+		<section class="container interactive-panel" aria-label="Interactive sales by renovation years section">
+			<h3 class="section-title">Renovation and Sales</h3>
+			<p class="interactive-subtext">
+				This section uses Tableau `Sheet7` to analyze sales counts across renovation-age ranges.
+				Interact with bars to compare demand concentration by renovation recency.
+			</p>
+			<div class="viz-controls" role="group" aria-label="Tableau controls for sales view">
+				<button id="undoBtn3" type="button">Undo</button>
+				<button id="redoBtn3" type="button">Redo</button>
+				<button id="resetBtn3" type="button">Reset</button>
+				<button id="fullscreenBtn3" type="button">Fullscreen</button>
+				<label class="toolbar-toggle" for="toolbarToggle3">
+					<input id="toolbarToggle3" type="checkbox" checked />
+					Show Toolbar
+				</label>
+			</div>
+
+			<div class="analysis-grid">
+				<aside class="observations-card">
+					<h4>Insights</h4>
+					<ul>
+						<li>Recent renovations capture the highest sales activity.</li>
+						<li>Sales generally drop as renovation age increases.</li>
+						<li>Mid-range bands still contain demand pockets.</li>
+          </ul>
+				</aside>
+
+				<div id="tableauMountSales" class="tableau-mount" aria-live="polite">
+					<noscript>
+						<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet7">
+							<img
+								alt="Total Sales By Years Since Renovation"
+								src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet7/1_rss.png"
+								style="border: none"
+							/>
+						</a>
+					</noscript>
+				</div>
+			</div>
+		</section>
+
+		<section class="container interactive-panel interactive-panel--summary" aria-label="Interactive metrics summary section">
+			<h3 class="section-title">Core Metrics Summary</h3>
+			<p class="interactive-subtext">
+				This section uses Tableau Sheet10 as an interactive summary view for key market indicators.
+				Use selections to inspect how headline metrics align with the broader housing pattern.
+			</p>
+			<div class="viz-controls" role="group" aria-label="Tableau controls for summary view">
+				<button id="undoBtn4" type="button">Undo</button>
+				<button id="redoBtn4" type="button">Redo</button>
+				<button id="resetBtn4" type="button">Reset</button>
+				<button id="fullscreenBtn4" type="button">Fullscreen</button>
+				<label class="toolbar-toggle" for="toolbarToggle4">
+					<input id="toolbarToggle4" type="checkbox" checked />
+					Show Toolbar
+				</label>
+			</div>
+
+			<div id="tableauMountSummary" class="tableau-mount tableau-mount--summary" aria-live="polite">
+				<noscript>
+					<a href="https://public.tableau.com/views/completeskillwalletproject_17735011013020/Sheet10">
+						<img
+							alt="Core metrics summary visualization"
+							src="https://public.tableau.com/static/images/co/completeskillwalletproject_17735011013020/Sheet10/1_rss.png"
+							style="border: none"
+						/>
+					</a>
+				</noscript>
+			</div>
+		</section>
+	</main>
+
+	<footer id="documentation">
+		<div class="container footer-top">
+			<p class="footer-title">Methodology &amp; Tools</p>
+			<ul>
+				<li>Tableau</li>
+				<li>Data Transformation</li>
+				<li>Analytical Visualization</li>
+			</ul>
+		</div>
+		<div class="container footer-bottom">
+			<p>© 2023 Comprehensive House Data Analysis Project. Built for professional market evaluation.</p>
+			<div class="footer-links">
+				<a href="#">Privacy Policy</a>
+				<a href="#">Terms of Service</a>
+				<a href="#">Contact Support</a>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Dataset Download Dialog -->
+	<div id="datasetModal" class="dataset-modal">
+		<div class="dataset-modal-content">
+			<div class="modal-header">
+				<h3>Download Housing Dataset</h3>
+				<button id="closeModalBtn" class="modal-close" aria-label="Close dialog">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="dataset-info">
+					<div class="info-item">
+						<span class="info-label">Total Records:</span>
+						<span class="info-value">21,609 rows</span>
+					</div>
+					<div class="info-item">
+						<span class="info-label">Size:</span>
+						<span class="info-value">4.8 MB</span>
+					</div>
+					<div class="info-item">
+						<span class="info-label">tyle:</span>
+						<span class="info-value">.csv</span>
+					</div>
+					<div class="info-item">
+						<span class="info-label">content</span>
+						<span class="info-value">Housing_dataset</span>
+					</div>
+				</div>
+				<p class="modal-description">
+					This dataset contains comprehensive housing information including property characteristics, 
+					renovation details, and market pricing. Ready for analysis and visualization.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button id="cancelBtn" class="modal-btn modal-btn-cancel">Cancel</button>
+				<button id="downloadConfirmBtn" class="modal-btn modal-btn-download">📥 Download CSV</button>
+			</div>
+		</div>
+	</div>
+	<div id="modalBackdrop" class="modal-backdrop"></div>
+
+	<script type="module" src="../static/js/main.js"></script>
+</body>
+</html>
